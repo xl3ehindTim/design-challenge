@@ -13,7 +13,7 @@ class StationSerializer(serializers.ModelSerializer):
 class StationViewSet(viewsets.ModelViewSet):
     queryset = Station.objects.all()
     serializer_class = StationSerializer
-
+    lookup_field = 'beneCode'
     search_fields = (
         "name",
     )
