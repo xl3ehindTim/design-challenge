@@ -20,8 +20,8 @@ export default function LoginForm() {
   } = useForm()
 
   const onFinish = async (values: FieldValues) => {
-    const response = await axiosInstance.post("/api/token/", {
-      username: values.username,
+    const response = await axiosInstance.post("/token/", {
+      email: values.email,
       password: values.password,
     })
 
@@ -45,8 +45,8 @@ export default function LoginForm() {
       <Grid container direction="column" spacing="4">
         <Grid item>
           <InputField
-            label="Email"
-            placeholder="Email"
+            label="Email Address"
+            placeholder="Email Address"
             control={control}
             error={errors.email}
             {...register("email")}
@@ -65,12 +65,13 @@ export default function LoginForm() {
 
         <Grid item sx={{ marginTop: 4 }}>
           <Button
+            fullWidth
             variant="contained"
             color="primary"
             type="submit"
-            sx={{ float: "right" }}
+            sx={{ float: "right", height: 35 }}
           >
-            Sign in
+            Login Now
           </Button>
         </Grid>
       </Grid>

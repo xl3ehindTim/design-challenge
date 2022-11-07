@@ -1,11 +1,36 @@
 import { Wrapper } from "@/components/Wrapper"
 import AppLayout from "@/features/layout/AppLayout"
+import axiosInstance from "@/xhr/axiosInstance"
+import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import React, { ReactElement } from "react"
 
 export default function Page() {
+  const [stations, setStations] = React.useState([{
+    beneCode: "NLAAC",
+    name: "Amsterdam Sloterdijk"
+  }]);
+
+  const [station, setStation] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setStation(event.target.value as string);
+  };
+
+  // const getStations = async () => {
+  //   axiosInstance.get("https://www.nsinternational.com/api/v2/stations/").then((res) => setStations(res.data))
+  // }
+
+  // React.useEffect(() => {
+  //   getStations()
+  // }, [])
 
   return (
     <>
+      <Select value={station} onChange={handleChange} sx={{ width: 200 }}>
+        {stations?.map((station, index) => (
+          <MenuItem value={station.beneCode}>{station.name}</MenuItem>
+        ))}
+      </Select>
       Homepagina
     </>
   )
