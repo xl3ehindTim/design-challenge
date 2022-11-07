@@ -21,11 +21,13 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from users import rest as users_api
+from stations import rest as stations_api
 
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 
 users_api.register(router)
+stations_api.register(router)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
