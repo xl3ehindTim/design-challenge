@@ -1,8 +1,11 @@
 import { Wrapper } from "@/components/Wrapper"
+import BookingForm from "@/features/booking/BookingForm";
 import AppLayout from "@/features/layout/AppLayout"
 import axiosInstance from "@/xhr/axiosInstance"
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import React, { ReactElement } from "react"
+
+
 
 export default function Page() {
   const [stations, setStations] = React.useState([{
@@ -26,12 +29,9 @@ export default function Page() {
 
   return (
     <>
-      <Select value={station} onChange={handleChange} sx={{ width: 200 }}>
-        {stations?.map((station, index) => (
-          <MenuItem value={station.beneCode}>{station.name}</MenuItem>
-        ))}
-      </Select>
-      Homepagina
+      Where do you want to go?
+
+      <BookingForm />
     </>
   )
 }
