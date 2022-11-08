@@ -1,13 +1,13 @@
 import React, { ReactElement } from "react"
 import AppLayout from "@/features/layout/AppLayout"
 import { useRouter } from "next/router"
-import Head from "next/head"
 import { Wrapper } from "@/components/Wrapper"
-import { Button, Grid, Stack, Typography } from "@mui/material"
+import { Box, Button, Grid, Stack, Typography } from "@mui/material"
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import Link from "next/link"
 import axiosInstance from "@/xhr/axiosInstance"
 import { IStation } from "@/features/booking/BookingForm"
+import BookingCalender from "@/features/booking/BookingCalender"
 
 export default function Page() {
   const router = useRouter()
@@ -16,43 +16,48 @@ export default function Page() {
   const [fromStation, setFromStation] = React.useState<IStation | undefined>(undefined);
   const [toStation, setToStation] = React.useState<IStation | undefined>(undefined);
 
+  React.useEffect(() => {
+    if (fromToRoute?.includes('-')) {
+      // @ts-ignore
+      axiosInstance.get("/stations/" + fromToRoute?.split('-')[0]).then(({ data }) => setFromStation(data))
+      // @ts-ignore
+      axiosInstance.get("/stations/" + fromToRoute?.split('-')[1]).then(({ data }) => setToStation(data))
+    }
+  }, [fromToRoute])
+
   if (!fromToRoute?.includes('-')) {
-    return <>Invalid search query</>
+    return <>Loading...</>
   }
 
-  React.useEffect(() => {
-    // @ts-ignore
-    axiosInstance.get("/stations/" + fromToRoute?.split('-')[0]).then(({ data }) => setFromStation(data))
-    // @ts-ignore
-    axiosInstance.get("/stations/" + fromToRoute?.split('-')[1]).then(({ data }) => setToStation(data))
-  }, [fromToRoute])
+  if (!fromStation?.beneCode || !toStation?.beneCode) {
+    return <>Loading...</>
+  }
 
   return (
     <>
-      <Head>
-        <title>
+      <Box sx={{
+        p: 10,
+        paddingBottom: 0,
+      }}>
+        <Grid container>
+          <Grid item xs={9}>
+            <Stack direction="row" spacing={1}>
+              <Typography variant='h5'>{fromStation?.name}</Typography>
+              <ArrowRightAltIcon fontSize='large' />
+              <Typography variant='h5'>{toStation?.name}</Typography>
+            </Stack>
 
-        </title>
-      </Head>
-
-      <Grid container sx={{ p: 2}}>
-        <Grid item xs={10}>
-          <Stack direction="row" spacing={1}>
-            <Typography variant='h5'>{fromStation?.name}</Typography>
-            <ArrowRightAltIcon fontSize='large' />
-            <Typography variant='h5'>{toStation?.name}</Typography>
-          </Stack>
-
-          1 reiziger - 0 kortings-/loyaltykaarten
+            {/* 1 reiziger - 0 kortings-/loyaltykaarten */}
+          </Grid>
+          <Grid item xs={2}>
+            <Link href={`/`}>
+              <Button sx={{ width: 200, height: 40 }} variant='contained'>Edit</Button>
+            </Link>
+          </Grid>
         </Grid>
-        <Grid item xs={2}>
-          <Link href={`/`}>
-            <Button sx={{ width: 200, height: 40 }} variant='contained'>Edit</Button>
-          </Link>
-        </Grid>
-      </Grid>
+      </Box>
 
-      <Typography sx={{ marginTop: 8 }} variant='h4'>Kies uw heenreis</Typography>
+      <BookingCalender route={`${fromStation?.beneCode}-${toStation?.beneCode}`} />
     </>
   )
 }
