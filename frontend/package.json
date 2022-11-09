@@ -25,7 +25,8 @@
     "react-dom": "18.1.0",
     "react-hook-form": "^7.39.1",
     "react-icons": "^4.4.0",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "@mui/x-date-pickers": "^5.0.3"
   },
   "devDependencies": {
     "@babel/core": ">=7.4.0 <8.0.0",

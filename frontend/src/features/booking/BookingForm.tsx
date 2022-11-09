@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
 import axiosInstance from "@/xhr/axiosInstance"
 import { InputField } from "@/components/Form/InputField"
-import { Grid } from "@mui/material"
+import { Box, Grid, Typography } from "@mui/material"
 import { AsyncSelectField } from "@/components/Form/AsyncSelectField"
+import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
+import { DateField } from "@/components/Form/DateField"
 
 export interface IStation {
   id: string;
@@ -21,6 +23,7 @@ export default function BookingForm() {
     control,
     handleSubmit,
     register,
+    getValues,
     setValue,
     reset,
     formState: { errors, isSubmitting },
@@ -31,6 +34,14 @@ export default function BookingForm() {
     const toStation = values.toStation.value;
 
     router.push(`/search/${fromStation}-${toStation}`)
+  }
+
+  const handleSwap = () => {
+    const fromStation = getValues('fromStation')
+    const toStation = getValues('toStation')
+
+    setValue('fromStation', toStation)
+    setValue('toStation', fromStation)
   }
 
   // const doSave = useCallback(
@@ -58,9 +69,8 @@ export default function BookingForm() {
 
   return (
     <form onSubmit={handleSubmit(doSave)}>
-      <Grid container direction="column" spacing={1}>
-
-        <Grid item>
+      <Grid container spacing={1} sx={{ justifyContent: 'center' }}>
+        <Grid item xs={5}>
           <AsyncSelectField
             label="From"
             control={control}
@@ -71,8 +81,12 @@ export default function BookingForm() {
             {...register("fromStation")}
           />
         </Grid>
-
         <Grid item>
+          <Box sx={{ marginTop: 2, cursor: 'pointer' }} onClick={handleSwap}>
+            <SwapHorizIcon />
+          </Box>
+        </Grid>
+        <Grid item xs={5}>
           <AsyncSelectField
             label="To"
             control={control}
@@ -83,10 +97,24 @@ export default function BookingForm() {
             {...register("toStation")}
           />
         </Grid>
+      </Grid>
 
-        <Grid item>
-          <Button variant="contained" type="submit">
-            Search
+      <Grid container spacing={1} sx={{ justifyContent: 'center' }}>
+        <Grid item xs={5}>
+          <DateField
+            label="Vertrekddatum"
+            control={control}
+            error={errors.departureDate}
+            name="departureDate"
+          />
+        </Grid>
+        <Grid item xs={4}>
+        </Grid>
+        <Grid item sx={{ marginTop: 1}}>
+          <Button size="medium" variant="contained" type="submit">
+            <Typography color='white'>
+              Zoeken
+            </Typography>
           </Button>
         </Grid>
       </Grid>

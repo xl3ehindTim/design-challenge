@@ -1,5 +1,5 @@
 import * as React from "react"
-import LoginForm from "@/features/auth/components/LoginForm"
+import RegisterForm from "@/features/auth/components/RegisterForm"
 import Head from "next/head"
 import Grid from "@mui/material/Grid"
 import { Button, Typography } from "@mui/material"
@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <AppLayout>
       <Head>
-        <title>Sign in</title>
+        <title>Register</title>
       </Head>
 
       <Grid
@@ -21,10 +21,10 @@ export default function Page() {
         style={{ paddingTop: 30 }}
       >
         <Grid item xs={4}>
-          <Typography variant='h5'>Login</Typography>
+          <Typography variant='h5'>Register</Typography>
         </Grid>
         <Grid item xs={12} sx={{ background: "#fff", p: 4, minWidth: 480 }}>
-          <LoginForm />
+          <RegisterForm />
         </Grid>
       </Grid>
     </AppLayout>
