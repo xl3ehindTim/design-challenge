@@ -3,7 +3,6 @@ import Button from "@mui/material/Button"
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
 import axiosInstance from "@/xhr/axiosInstance"
-import { InputField } from "@/components/Form/InputField"
 import { Box, Grid, Typography } from "@mui/material"
 import { AsyncSelectField } from "@/components/Form/AsyncSelectField"
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
@@ -33,7 +32,7 @@ export default function BookingForm() {
     const fromStation = values.fromStation.value;
     const toStation = values.toStation.value;
 
-    router.push(`/search/${fromStation}-${toStation}`)
+    router.push(`/search/${fromStation}-${toStation}?date=${values.departureDate}`)
   }
 
   const handleSwap = () => {

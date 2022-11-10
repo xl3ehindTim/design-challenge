@@ -7,11 +7,11 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import Link from "next/link"
 import axiosInstance from "@/xhr/axiosInstance"
 import { IStation } from "@/features/booking/BookingForm"
-import BookingCalender from "@/features/booking/BookingCalender"
+import BookingEntryList from "@/features/booking/BookingEntryList"
 
 export default function Page() {
   const router = useRouter()
-  const { id: fromToRoute } = router.query
+  const { id: fromToRoute, date } = router.query
 
   const [fromStation, setFromStation] = React.useState<IStation | undefined>(undefined);
   const [toStation, setToStation] = React.useState<IStation | undefined>(undefined);
@@ -36,8 +36,8 @@ export default function Page() {
   return (
     <>
       <Box sx={{
-        p: 10,
-        paddingBottom: 0,
+        p: 5,
+        // paddingBottom: 0,
       }}>
         <Grid container>
           <Grid item xs={9}>
@@ -47,7 +47,7 @@ export default function Page() {
               <Typography variant='h5'>{toStation?.name}</Typography>
             </Stack>
 
-            {/* 1 reiziger - 0 kortings-/loyaltykaarten */}
+            <>{new Date(date).toLocaleDateString()}</>
           </Grid>
           <Grid item xs={2}>
             <Link href={`/`}>
@@ -57,7 +57,14 @@ export default function Page() {
         </Grid>
       </Box>
 
-      <BookingCalender route={`${fromStation?.beneCode}-${toStation?.beneCode}`} />
+      <Box sx={{
+        pl: 5,
+        pr: 5,
+      }}>
+        <BookingEntryList departureDate={date} route={`${fromStation?.beneCode}-${toStation?.beneCode}`} />
+      </Box>
+
+      {/* <BookingCalender route={`${fromStation?.beneCode}-${toStation?.beneCode}`} /> */}
     </>
   )
 }
