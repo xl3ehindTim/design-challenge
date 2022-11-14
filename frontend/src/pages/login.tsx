@@ -2,7 +2,7 @@ import * as React from "react"
 import LoginForm from "@/features/auth/components/LoginForm"
 import Head from "next/head"
 import Grid from "@mui/material/Grid"
-import { Button, Typography } from "@mui/material"
+import { Typography } from "@mui/material"
 import AppLayout from "@/features/layout/AppLayout"
 
 export default function Page() {

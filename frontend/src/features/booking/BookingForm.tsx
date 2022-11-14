@@ -7,6 +7,7 @@ import { Box, Grid, Typography } from "@mui/material"
 import { AsyncSelectField } from "@/components/Form/AsyncSelectField"
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 import { DateField } from "@/components/Form/DateField"
+import moment from "moment"
 
 export interface IStation {
   id: string;
@@ -27,7 +28,11 @@ export default function BookingForm() {
     reset,
     watch,
     formState: { errors, isSubmitting },
-  } = useForm()
+  } = useForm({
+    defaultValues: {
+      departureDate: moment().format('YYYY-MM-DD')
+    }
+  })
 
   const doSave = (values: any) => {
     const fromStation = values.fromStation.value;
@@ -92,7 +97,7 @@ export default function BookingForm() {
       <Grid container spacing={1} sx={{ justifyContent: 'center' }}>
         <Grid item xs={5}>
           <DateField
-            label="Vertrekddatum"
+            label="Vertrekdatum"
             control={control}
             error={errors.departureDate}
             name="departureDate"
