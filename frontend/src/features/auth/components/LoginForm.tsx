@@ -9,6 +9,8 @@ import { InputField } from "@/components/Form/InputField"
 import { PasswordField } from "@/components/Form/PasswordField"
 import Button from "@mui/material/Button"
 import Grid from "@mui/material/Grid"
+import { Typography } from "@mui/material"
+import Link from "next/link"
 
 export default function LoginForm() {
   const router = useRouter()
@@ -63,7 +65,13 @@ export default function LoginForm() {
           />
         </Grid>
 
-        <Grid item sx={{ marginTop: 4 }}>
+        <Typography sx={{ fontSize: 14, marginLeft: 0.6 }} color="text.secondary" gutterBottom>
+          <Link href="/register">
+            Don't have an account? Register now!
+          </Link>
+        </Typography>
+
+        <Grid item sx={{ marginTop: 2 }}>
           <Button
             fullWidth
             variant="contained"

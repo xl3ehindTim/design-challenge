@@ -3,9 +3,11 @@ import Button from "@mui/material/Button"
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
 import axiosInstance from "@/xhr/axiosInstance"
-import { InputField } from "@/components/Form/InputField"
-import { Grid } from "@mui/material"
+import { Box, Grid, Typography } from "@mui/material"
 import { AsyncSelectField } from "@/components/Form/AsyncSelectField"
+import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
+import { DateField } from "@/components/Form/DateField"
+import moment from "moment"
 
 export interface IStation {
   id: string;
@@ -21,27 +23,31 @@ export default function BookingForm() {
     control,
     handleSubmit,
     register,
+    getValues,
     setValue,
     reset,
+    watch,
     formState: { errors, isSubmitting },
-  } = useForm()
+  } = useForm({
+    defaultValues: {
+      departureDate: moment().format('YYYY-MM-DD')
+    }
+  })
 
   const doSave = (values: any) => {
     const fromStation = values.fromStation.value;
     const toStation = values.toStation.value;
 
-    router.push(`/search/${fromStation}-${toStation}`)
+    router.push(`/search/${fromStation}-${toStation}?date=${values.departureDate}`)
   }
 
-  // const doSave = useCallback(
-  //   (values: any) => {
-  //     const fromStation = values.fromStation;
-  //     const toStation = values.toStation;
+  const handleSwap = () => {
+    const fromStation = getValues('fromStation')
+    const toStation = getValues('toStation')
 
-  //     router.push(`/search/${fromStation}/${toStation}`)
-  //   },
-  //   []
-  // )
+    setValue('fromStation', toStation)
+    setValue('toStation', fromStation)
+  }
 
   const fetchStations = useCallback(async (query: string) => {
     const { data } = await axiosInstance.get("/stations/", {
@@ -58,9 +64,8 @@ export default function BookingForm() {
 
   return (
     <form onSubmit={handleSubmit(doSave)}>
-      <Grid container direction="column" spacing={1}>
-
-        <Grid item>
+      <Grid container spacing={1} sx={{ justifyContent: 'center' }}>
+        <Grid item xs={5}>
           <AsyncSelectField
             label="From"
             control={control}
@@ -71,8 +76,12 @@ export default function BookingForm() {
             {...register("fromStation")}
           />
         </Grid>
-
         <Grid item>
+          <Box sx={{ marginTop: 2, cursor: 'pointer' }} onClick={handleSwap}>
+            <SwapHorizIcon />
+          </Box>
+        </Grid>
+        <Grid item xs={5}>
           <AsyncSelectField
             label="To"
             control={control}
@@ -83,10 +92,24 @@ export default function BookingForm() {
             {...register("toStation")}
           />
         </Grid>
+      </Grid>
 
-        <Grid item>
-          <Button variant="contained" type="submit">
-            Search
+      <Grid container spacing={1} sx={{ justifyContent: 'center' }}>
+        <Grid item xs={5}>
+          <DateField
+            label="Vertrekdatum"
+            control={control}
+            error={errors.departureDate}
+            name="departureDate"
+          />
+        </Grid>
+        <Grid item xs={4}>
+        </Grid>
+        <Grid item sx={{ marginTop: 1 }}>
+          <Button size="medium" variant="contained" type="submit">
+            <Typography color='white'>
+              Zoeken
+            </Typography>
           </Button>
         </Grid>
       </Grid>

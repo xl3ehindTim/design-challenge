@@ -8,6 +8,7 @@ from rest_framework import viewsets, serializers
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -26,6 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    permission_classes = (AllowAny,)
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 

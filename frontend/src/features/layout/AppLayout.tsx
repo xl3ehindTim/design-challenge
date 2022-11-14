@@ -13,20 +13,20 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { isLoggedIn } from 'axios-jwt';
 import Link from 'next/link';
+import { getUser } from '../auth/services/user.service';
 
 const pages = [
-  {
-    url: '/',
-    label: 'Home',
-  },
-  {
-    url: '/search',
-    label: 'Search',
-  }
+  // {
+  //   url: '/',
+  //   label: 'Home',
+  // },
 ]
-const settings = ['Profile', 'Account', 'Logout'];
+
+const settings = [];
 
 function AppLayout({ children }: any) {
+  const user = getUser();
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -44,8 +44,6 @@ function AppLayout({ children }: any) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
-  const loggedIn = typeof window !== 'undefined' ? isLoggedIn() : false;
 
   return (
     <>
@@ -67,7 +65,7 @@ function AppLayout({ children }: any) {
                 textDecoration: 'none',
               }}
             >
-              LOGO
+              Trainaway.com
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -143,12 +141,15 @@ function AppLayout({ children }: any) {
                 </Link>
               ))}
             </Box>
-
-            {loggedIn ? (
+            
+            <Link href={"/login"} passHref key={10}>
+              <Button sx={{ my: 2, color: 'white', display: { xs: 'none', md: 'flex' } }}>Login</Button>
+            </Link>
+            {/* {user?.is_active ? (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                    <Avatar alt={user?.email} src="/static/images/avatar/2.jpg" />
                   </IconButton>
                 </Tooltip>
                 <Menu
@@ -172,13 +173,21 @@ function AppLayout({ children }: any) {
                       <Typography textAlign="center">{setting}</Typography>
                     </MenuItem>
                   ))}
+
+                  <MenuItem key={"Logout"} onClick={() => {
+                    handleCloseUserMenu();
+                    localStorage.clear();
+                    window.location.href = "/login";
+                  }}>
+                    <Typography textAlign="center">{"Logout"}</Typography>
+                  </MenuItem>
                 </Menu>
               </Box>
             ) : (
               <Link href={"/login"} passHref key={10}>
                 <Button sx={{ my: 2, color: 'white', display: { xs: 'none', md: 'flex' } }}>Login</Button>
               </Link>
-            )}
+            )} */}
           </Toolbar>
         </Container>
       </AppBar>
