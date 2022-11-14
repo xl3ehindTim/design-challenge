@@ -57,7 +57,6 @@ export default function BookingCalender(props: IProps) {
                 cursor: 'pointer',
                 borderBottom: `2px solid ${CATEGORY_COLOR[entry.category]}`,
                 width: 130,
-
               }}>
                 <CardContent>
                   <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>

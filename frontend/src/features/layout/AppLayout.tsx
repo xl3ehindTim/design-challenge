@@ -25,6 +25,8 @@ const pages = [
 const settings = [];
 
 function AppLayout({ children }: any) {
+  const user = getUser();
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -139,12 +141,15 @@ function AppLayout({ children }: any) {
                 </Link>
               ))}
             </Box>
-
-            {getUser()?.is_active ? (
+            
+            <Link href={"/login"} passHref key={10}>
+              <Button sx={{ my: 2, color: 'white', display: { xs: 'none', md: 'flex' } }}>Login</Button>
+            </Link>
+            {/* {user?.is_active ? (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt={getUser()?.email} src="/static/images/avatar/2.jpg" />
+                    <Avatar alt={user?.email} src="/static/images/avatar/2.jpg" />
                   </IconButton>
                 </Tooltip>
                 <Menu
@@ -182,7 +187,7 @@ function AppLayout({ children }: any) {
               <Link href={"/login"} passHref key={10}>
                 <Button sx={{ my: 2, color: 'white', display: { xs: 'none', md: 'flex' } }}>Login</Button>
               </Link>
-            )}
+            )} */}
           </Toolbar>
         </Container>
       </AppBar>

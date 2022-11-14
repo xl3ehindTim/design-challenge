@@ -20,7 +20,7 @@ class Command(BaseCommand):
                         booking_entries = requests.get(f"https://www.nsinternational.com/api/v2/traveloffers/booking-calendar/{from_station.beneCode}/{to_station.beneCode}/{str(start_date).replace('-', '')}").json()
 
                         for entry in booking_entries:
-                            if entry.get("numberOfTransfers") == 0 and entry.get("latestLowestPrice") != None:
+                            if entry.get("latestLowestPrice") != None:
                                 departure_date = entry.get("departureDate")
                                 arrival_date = entry.get("arrivalDate")
 

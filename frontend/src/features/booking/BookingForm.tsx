@@ -25,6 +25,7 @@ export default function BookingForm() {
     getValues,
     setValue,
     reset,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm()
 
@@ -42,16 +43,6 @@ export default function BookingForm() {
     setValue('fromStation', toStation)
     setValue('toStation', fromStation)
   }
-
-  // const doSave = useCallback(
-  //   (values: any) => {
-  //     const fromStation = values.fromStation;
-  //     const toStation = values.toStation;
-
-  //     router.push(`/search/${fromStation}/${toStation}`)
-  //   },
-  //   []
-  // )
 
   const fetchStations = useCallback(async (query: string) => {
     const { data } = await axiosInstance.get("/stations/", {
@@ -109,7 +100,7 @@ export default function BookingForm() {
         </Grid>
         <Grid item xs={4}>
         </Grid>
-        <Grid item sx={{ marginTop: 1}}>
+        <Grid item sx={{ marginTop: 1 }}>
           <Button size="medium" variant="contained" type="submit">
             <Typography color='white'>
               Zoeken

@@ -81,7 +81,7 @@ class BookingEntryViewSet(viewsets.ModelViewSet):
         if param_date:
             queryset = queryset.filter(departure_date__date=param_date)
 
-        return queryset
+        return queryset.order_by('departure_date__hour', 'departure_date__minute')
 
 
 def register(restrouter):

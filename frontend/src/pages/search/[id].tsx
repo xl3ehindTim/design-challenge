@@ -46,8 +46,6 @@ export default function Page() {
               <ArrowRightAltIcon fontSize='large' />
               <Typography variant='h5'>{toStation?.name}</Typography>
             </Stack>
-
-            <>{new Date(date).toLocaleDateString()}</>
           </Grid>
           <Grid item xs={2}>
             <Link href={`/`}>
