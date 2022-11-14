@@ -4,6 +4,7 @@ import { Box, Button, Card, Stack, CardActions, CardContent, Grid, Typography, C
 import React, { useEffect } from 'react';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import RepeatIcon from '@mui/icons-material/Repeat';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -14,15 +15,20 @@ import TimelineOppositeContent, {
   timelineOppositeContentClasses,
 } from '@mui/lab/TimelineOppositeContent';
 import Link from 'next/link';
+import { IStation } from './BookingForm';
 
 interface IProps {
   route: string;
   departureDate: string;
+  fromStation: IStation;
+  toStation: IStation;
 }
 
 export interface IBookingEntry {
+  id: any;
   arrival_date: string;
   departure_date: string;
+  number_of_transfers: number;
 }
 
 function secondsToHoursAndMinutes(d): string {
@@ -34,14 +40,15 @@ function secondsToHoursAndMinutes(d): string {
 }
 
 export default function BookingEntryList(props: IProps) {
-  const { route, departureDate } = props;
+  const { route, departureDate, fromStation, toStation } = props;
 
   // Booking entries list
   const [bookingEntries, setBookingEntries] = React.useState<IBookingEntry[] | []>([]);
-  const [selectedEntry, setSelectedEntry] = React.useState<string | null>(null);
+  const [selectedEntry, setSelectedEntry] = React.useState<IBookingEntry | null>(null);
 
   // Function to handle select
-  const handleSelect = (entry: string) => {
+  const handleSelect = (entry: IBookingEntry) => {
+    // @ts-ignore
     setSelectedEntry(entry?.id === selectedEntry?.id ? null : entry)
   }
 
@@ -57,17 +64,26 @@ export default function BookingEntryList(props: IProps) {
 
   return (
     <>
-      {/* <Stack
+      <Stack
         direction="row"
         justifyContent="space-between"
         alignItems="center"
         spacing={2}
+        sx={{ margin: 1 }}
       >
-        <Typography variant='h6'>Test -> Test</Typography>
-        <Link href={`/`}>
+        <Stack
+          direction="row"
+          spacing={2}
+        >
+          <Typography variant='h5'>{fromStation?.name}</Typography>
+          <ArrowRightAltIcon fontSize='large' />
+          <Typography variant='h5'>{toStation?.name}</Typography>
+        </Stack>
+
+        {/* <Link href={`/`}>
           <Button sx={{ width: 200, height: 40 }} variant='contained'>Edit</Button>
-        </Link>
-      </Stack> */}
+        </Link> */}
+      </Stack>
 
       <Grid container spacing={2}>
         <Grid item xs={5}>
@@ -83,7 +99,8 @@ export default function BookingEntryList(props: IProps) {
               </Typography>
             </CardContent>
           </Card>
-          {bookingEntries?.map((entry, index) => (
+          
+          {bookingEntries?.map((entry: IBookingEntry, index) => (
             <Card sx={{
               cursor: 'pointer',
               margin: 1,
@@ -110,16 +127,19 @@ export default function BookingEntryList(props: IProps) {
           <Card sx={{ margin: 1 }}>
             <CardContent>
               <Typography variant='h6'>Reis</Typography>
-              <Typography variant='body2'>
-                {new Date(departureDate).toLocaleDateString('nl-NL', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </Typography>
               {selectedEntry ? (
                 <>
+                  <Typography variant='body2'>
+                    {new Date(selectedEntry?.departure_date).toLocaleDateString('nl-NL', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </Typography>
+                  
+                  <Divider sx={{ marginTop: 1 }} />
+
                   <Timeline
                     sx={{
                       [`& .${timelineOppositeContentClasses.root}`]: {
@@ -135,7 +155,7 @@ export default function BookingEntryList(props: IProps) {
                         <TimelineDot />
                         <TimelineConnector />
                       </TimelineSeparator>
-                      <TimelineContent>Berlin Hbf</TimelineContent>
+                      <TimelineContent>{fromStation?.name}</TimelineContent>
                     </TimelineItem>
                     <TimelineItem>
                       <TimelineOppositeContent color="textSecondary">
@@ -144,7 +164,7 @@ export default function BookingEntryList(props: IProps) {
                       <TimelineSeparator>
                         <TimelineDot />
                       </TimelineSeparator>
-                      <TimelineContent>Amsterdam Central</TimelineContent>
+                      <TimelineContent>{toStation?.name}</TimelineContent>
                     </TimelineItem>
                   </Timeline>
                 </>
@@ -155,7 +175,7 @@ export default function BookingEntryList(props: IProps) {
               )}
 
               <Divider />
-              
+
               {/* Pricing */}
               <Stack
                 direction="row"
@@ -169,7 +189,9 @@ export default function BookingEntryList(props: IProps) {
               </Stack>
             </CardContent>
             <CardActions>
-              <Button fullWidth>Annuleren</Button>
+              <Link href={`/`}>
+                <Button fullWidth>Annuleren</Button>
+              </Link>
               <Button disabled={!selectedEntry} variant='contained' fullWidth>Boek uw reis</Button>
             </CardActions>
           </Card>
