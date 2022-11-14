@@ -65,7 +65,7 @@ function AppLayout({ children }: any) {
                 textDecoration: 'none',
               }}
             >
-              Trainaway.com
+              Greenaway.com
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
