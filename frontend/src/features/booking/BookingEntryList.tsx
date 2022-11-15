@@ -1,9 +1,11 @@
 import axiosInstance from '@/xhr/axiosInstance';
 import { ArrowRight } from '@mui/icons-material';
-import { Box, Button, Card, Stack, CardActions, CardContent, Grid, Typography, CardHeader, Divider } from '@mui/material';
+import { Box, Tooltip, Button, Card, Stack, CardActions, CardContent, Grid, Typography, CardHeader, Divider } from '@mui/material';
 import React, { useEffect } from 'react';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import Co2Icon from '@mui/icons-material/Co2';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -99,7 +101,7 @@ export default function BookingEntryList(props: IProps) {
               </Typography>
             </CardContent>
           </Card>
-          
+
           {bookingEntries?.map((entry: IBookingEntry, index) => (
             <Card sx={{
               cursor: 'pointer',
@@ -137,7 +139,7 @@ export default function BookingEntryList(props: IProps) {
                       day: 'numeric',
                     })}
                   </Typography>
-                  
+
                   <Divider sx={{ marginTop: 1 }} />
 
                   <Timeline
@@ -186,6 +188,23 @@ export default function BookingEntryList(props: IProps) {
               >
                 <Typography variant='h6'>Totaal</Typography>
                 <Typography variant='h6'>{selectedEntry ? new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(selectedEntry?.price) : "€ 0,00"}</Typography>
+              </Stack>
+
+              {/* Co2 / Points */}
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                spacing={0}
+              >
+                <Stack direction="row" alignItems={"center"} spacing={1}>
+                  <Tooltip title={`Vergeleken met een vliegtuigreis naar ${toStation?.name}`}>
+                    <InfoOutlinedIcon />
+                  </Tooltip>
+                  <Typography variant='body2'>Bespaar 406 kg CO2</Typography>
+                </Stack>
+
+                <Typography variant='body2'>Spaar 300 GreenCoins</Typography>
               </Stack>
             </CardContent>
             <CardActions>
