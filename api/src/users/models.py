@@ -47,6 +47,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=255, blank=True, null=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    green_coins = models.DecimalField(max_digits=50, decimal_places=2, default=0)
 
     USERNAME_FIELD = "email"
     EMAIL_FIELD = "email"
