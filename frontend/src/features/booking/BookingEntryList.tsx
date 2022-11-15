@@ -150,7 +150,7 @@ export default function BookingEntryList(props: IProps) {
                     }}
                   >
                     <TimelineItem>
-                      <TimelineOppositeContent color="textSecondary">
+                      <TimelineOppositeContent color="InfoText">
                         {new Date(selectedEntry?.departure_date).toLocaleTimeString('nl-NL').slice(0, -3)}
                       </TimelineOppositeContent>
                       <TimelineSeparator>
@@ -160,7 +160,7 @@ export default function BookingEntryList(props: IProps) {
                       <TimelineContent>{fromStation?.name}</TimelineContent>
                     </TimelineItem>
                     <TimelineItem>
-                      <TimelineOppositeContent color="textSecondary">
+                      <TimelineOppositeContent color="InfoText">
                         {new Date(selectedEntry?.arrival_date).toLocaleTimeString('nl-NL').slice(0, -3)}
                       </TimelineOppositeContent>
                       <TimelineSeparator>
@@ -190,22 +190,23 @@ export default function BookingEntryList(props: IProps) {
                 <Typography variant='h6'>{selectedEntry ? new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(selectedEntry?.price) : "€ 0,00"}</Typography>
               </Stack>
 
-              {/* Co2 / Points */}
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                spacing={0}
-              >
-                <Stack direction="row" alignItems={"center"} spacing={1}>
-                  <Tooltip title={`Vergeleken met een vliegtuigreis naar ${toStation?.name}`}>
-                    <InfoOutlinedIcon />
-                  </Tooltip>
-                  <Typography variant='body2'>Bespaar 406 kg CO2</Typography>
-                </Stack>
+              {selectedEntry ? (
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  spacing={0}
+                >
+                  <Stack direction="row" alignItems={"center"} spacing={1}>
+                    <Tooltip title={`Vergeleken met een vliegtuigreis naar ${toStation?.name}`}>
+                      <InfoOutlinedIcon />
+                    </Tooltip>
+                    <Typography variant='body2'>Bespaar 406 kg CO2</Typography>
+                  </Stack>
 
-                <Typography variant='body2'>Spaar 300 GreenCoins</Typography>
-              </Stack>
+                  <Typography variant='body2'>Spaar 300 GreenCoins</Typography>
+                </Stack>
+              ) : null}
             </CardContent>
             <CardActions>
               <Link href={`/`}>
