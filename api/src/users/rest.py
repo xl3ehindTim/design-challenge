@@ -8,6 +8,7 @@ from rest_framework import viewsets, serializers
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.http import HttpResponse
 from rest_framework.permissions import AllowAny
 
 
@@ -39,6 +40,12 @@ class UserViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=["get"])
     def get_current_user(self, request, *args, **kwargs):
         return Response(UserSerializer(request.user).data)
+
+    @action(detail=True, methods=["get"])
+    def get_user_points(self, request, *args, **kwargs):
+        user = self.get_object()
+
+        return HttpResponse(f"={user.green_coins}")
 
     def perform_create(self, serializer):
         data_password = self.request.data.get("password")
