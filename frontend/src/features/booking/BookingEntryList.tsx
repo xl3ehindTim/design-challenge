@@ -53,7 +53,7 @@ export default function BookingEntryList(props: IProps) {
     // @ts-ignore
     setSelectedEntry(entry?.id === selectedEntry?.id ? null : entry)
   }
-
+  
   // Fetch booking entries from API
   const getBookingEntries = async () => {
     axiosInstance.get(`/booking-entries/?route=${route}&date=${departureDate}`).then(({ data }) => setBookingEntries(data.results))
@@ -88,7 +88,7 @@ export default function BookingEntryList(props: IProps) {
       </Stack>
 
       <Grid container spacing={2}>
-        <Grid item xs={5}>
+        <Grid item sm={5} xs={12}>
           <Card sx={{ margin: 1 }}>
             <CardContent>
               <Typography variant='body2'>
@@ -125,7 +125,7 @@ export default function BookingEntryList(props: IProps) {
             </Card>
           ))}
         </Grid>
-        <Grid item xs={6}>
+        <Grid item sm={6} xs={12}>
           <Card sx={{ margin: 1 }}>
             <CardContent>
               <Typography variant='h6'>Reis</Typography>
@@ -212,7 +212,10 @@ export default function BookingEntryList(props: IProps) {
               <Link href={`/`}>
                 <Button fullWidth>Annuleren</Button>
               </Link>
-              <Button disabled={!selectedEntry} variant='contained' fullWidth>Boek uw reis</Button>
+
+              <Link href={`/booked`}>
+                <Button disabled={!selectedEntry} variant='contained' fullWidth>Boek uw reis</Button>
+              </Link>
             </CardActions>
           </Card>
         </Grid>

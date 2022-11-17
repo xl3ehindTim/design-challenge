@@ -33,10 +33,7 @@ export default function Page() {
 
   return (
     <>
-      <Box sx={{
-        pl: 5,
-        pr: 5,
-      }}>
+      <Box px={{ sm: 5 }}>
         <BookingEntryList fromStation={fromStation} toStation={toStation} departureDate={date} route={`${fromStation?.beneCode}-${toStation?.beneCode}`} />
       </Box>
     </>
