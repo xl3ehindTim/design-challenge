@@ -4,15 +4,20 @@ import datetime
 from .models import Station, CompatibleStationLink, BookingEntry
 
 
-class StationSerializer(serializers.ModelSerializer):
+class CompatibleStationLinkSerializer(serializers.ModelSerializer):
+    """ 
+    Compatible Stations Serializer
+    """
     class Meta:
         model = Station
-        fields = "__all__"
+        fields = ["id", "name", "beneCode"]
 
 
-class CompatibleStationLinkSerializer(serializers.ModelSerializer):
+class StationSerializer(serializers.ModelSerializer):
+    compatible_stations = CompatibleStationLinkSerializer(many=True, read_only=True)
+
     class Meta:
-        model = CompatibleStationLink
+        model = Station
         fields = "__all__"
 
 
