@@ -2,6 +2,7 @@ import * as React from 'react';
 import { getUser } from '../auth/services/user.service';
 import logo from "../../assets/img/GTLogo.png";
 import Image from 'next/image'
+import Link from "next/link"
 
 function AppLayout({ children }: any) {
   const user = getUser();
@@ -16,9 +17,17 @@ function AppLayout({ children }: any) {
           <h1>GreenTravels</h1>
         </div>
         <div className="knoppen">
-          <><i className="fa-solid fa-house" style={{ fontSize:"20px" }}></i></>
-          <><i className="fa-solid fa-user" style={{ fontSize:"20px" }}></i></>
-          <><i className="fa-solid fa-basket-shopping" style={{ fontSize:"20px" }}></i></>
+          <Link href="/">
+            <i className="fa-solid fa-house" style={{ fontSize:"20px", cursor: "pointer" }}></i>
+          </Link>
+
+          <Link href="/login">
+          <i className="fa-solid fa-user" style={{ fontSize:"20px", cursor: "pointer" }}></i>
+          </Link>
+
+          <Link href="/shop">
+          <i className="fa-solid fa-basket-shopping" style={{ fontSize:"20px", cursor: "pointer" }}></i>
+          </Link>
         </div>
       </div>
 
