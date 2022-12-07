@@ -5,12 +5,29 @@ body {
 }
 
 .navbar {
- background-color: #5DAE32;
- height: 50px;
- width: 100%;
+    background-color: #5DAE32;
+    height: 50px;
+    width: 100%;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
     padding-top: 0.35vw;
     padding-left: 0.5vw;
+}
+
+.greentravels {
+    text-align: center;
+    color: white;
+}
+
+.knoppen {
+    display: flex;
+    justify-content: space-between;
+    width: 125px;
+    color:white;
+    padding-right: 1vw;
 }
