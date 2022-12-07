@@ -1,18 +1,23 @@
 from rest_framework import serializers
 from rest_framework import viewsets
 import datetime
-from .models import Station, CalenderEntry, BookingEntry
+from .models import Station, CompatibleStationLink, BookingEntry
+
+
+class CompatibleStationLinkSerializer(serializers.ModelSerializer):
+    """ 
+    Compatible Stations Serializer
+    """
+    class Meta:
+        model = Station
+        fields = ["id", "name", "beneCode"]
 
 
 class StationSerializer(serializers.ModelSerializer):
+    compatible_stations = CompatibleStationLinkSerializer(many=True, read_only=True)
+
     class Meta:
         model = Station
-        fields = "__all__"
-
-
-class CalenderEntrySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CalenderEntry
         fields = "__all__"
 
 
@@ -31,26 +36,12 @@ class StationViewSet(viewsets.ModelViewSet):
     )
 
 
-class CalenderEntryViewSet(viewsets.ModelViewSet):
-    queryset = CalenderEntry.objects.all()
-    serializer_class = CalenderEntrySerializer
+class CompatibleStationLinkViewSet(viewsets.ModelViewSet):
+    queryset = CompatibleStationLink.objects.all()
+    serializer_class = CompatibleStationLinkSerializer
 
     def get_queryset(self):
-        # Filter for today/after today
-        today = datetime.date.today()
-        queryset = CalenderEntry.objects.filter(date__gte=today)
-
-        # If route has been supplied filter
-        param_route = self.request.GET.get("route")
-
-        if param_route:
-            route = param_route.split("-")
-            
-            # From-To
-            queryset = queryset.filter(
-                from_station__beneCode=route[0],
-                to_station__beneCode=route[1],
-            )
+        queryset = CompatibleStationLink.objects.all()
 
         return queryset
 
@@ -87,5 +78,4 @@ class BookingEntryViewSet(viewsets.ModelViewSet):
 def register(restrouter):
     # Register routes to the API
     restrouter.register(r"stations", StationViewSet)
-    restrouter.register(r"calender-entries", CalenderEntryViewSet)
     restrouter.register(r"booking-entries", BookingEntryViewSet)
