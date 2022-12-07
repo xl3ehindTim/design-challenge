@@ -1,1 +1,16 @@
 /* Schrijf hier je CSS :D */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+ background-color: #5DAE32;
+ height: 50px;
+ width: 100%;
+}
+
+.logo {
+    padding-top: 0.35vw;
+    padding-left: 0.5vw;
+}
