@@ -42,8 +42,8 @@ export default function LoginForm() {
   return (
     <form onSubmit={handleSubmit(onFinish)}>
       <InputField
-        label="Email Address"
-        placeholder="Email Address"
+        label="Email Adres"
+        placeholder="Email Adres"
         control={control}
         error={errors.email}
         {...register("email")}
