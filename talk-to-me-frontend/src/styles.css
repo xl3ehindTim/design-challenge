@@ -31,3 +31,24 @@ body {
     color:white;
     padding-right: 1vw;
 }
+
+.loginform {
+    margin: auto;
+    width: 25vw;
+    height: 60vh;
+    border-style: solid;
+    border-radius: 30px;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    margin-top: 10vh;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-lg {
+    font-size: 40px;
+}

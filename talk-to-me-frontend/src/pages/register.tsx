@@ -2,6 +2,7 @@ import * as React from "react"
 import RegisterForm from "@/features/auth/components/RegisterForm"
 import Head from "next/head"
 import AppLayout from "@/features/layout/AppLayout"
+import { fontSize } from "@mui/system"
 
 export default function Page() {
   return (
@@ -10,8 +11,12 @@ export default function Page() {
         <title>Register</title>
       </Head>
 
-      <h5>Register</h5>
+
+      <div className="loginform">
+      <h5 className="text-center text-lg">Registreer</h5>
       <RegisterForm />
+      </div>
+
     </AppLayout>
   )
 }
