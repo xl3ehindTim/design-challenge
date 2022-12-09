@@ -8,16 +8,6 @@ class Station(models.Model):
 
     def __str__(self):
         return self.name
-    
-# Calender bookable entry database model
-class CalenderEntry(models.Model):
-    from_station = models.ForeignKey(Station, on_delete=models.CASCADE, related_name="from_station", blank=True, null=True)
-    to_station = models.ForeignKey(Station, on_delete=models.CASCADE, related_name="to_station", blank=True, null=True)
-    date = models.DateField()
-    price = models.DecimalField(max_digits=25, decimal_places=2)
-    category = models.CharField(max_length=250)
-    departure_date = models.DateTimeField()
-    arrival_date = models.DateTimeField()
 
 
 class BookingEntry(models.Model):
