@@ -11,10 +11,11 @@ export default function Page() {
         <title>Register</title>
       </Head>
 
-
-      <div className="loginform">
+      <div className="trein">
+       <div className="loginform">
       <h5 className="text-center text-lg">Registreer</h5>
       <RegisterForm />
+      </div>
       </div>
 
     </AppLayout>
