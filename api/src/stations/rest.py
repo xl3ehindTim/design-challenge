@@ -1,10 +1,21 @@
 from rest_framework import serializers
 from rest_framework import viewsets
 import datetime
-from .models import Station, BookingEntry
+from .models import Station, CompatibleStationLink, BookingEntry
+
+
+class CompatibleStationLinkSerializer(serializers.ModelSerializer):
+    """ 
+    Compatible Stations Serializer
+    """
+    class Meta:
+        model = Station
+        fields = ["id", "name", "beneCode"]
 
 
 class StationSerializer(serializers.ModelSerializer):
+    compatible_stations = CompatibleStationLinkSerializer(many=True, read_only=True)
+
     class Meta:
         model = Station
         fields = "__all__"
@@ -23,6 +34,16 @@ class StationViewSet(viewsets.ModelViewSet):
     search_fields = (
         "name",
     )
+
+
+class CompatibleStationLinkViewSet(viewsets.ModelViewSet):
+    queryset = CompatibleStationLink.objects.all()
+    serializer_class = CompatibleStationLinkSerializer
+
+    def get_queryset(self):
+        queryset = CompatibleStationLink.objects.all()
+
+        return queryset
 
 
 class BookingEntryViewSet(viewsets.ModelViewSet):
