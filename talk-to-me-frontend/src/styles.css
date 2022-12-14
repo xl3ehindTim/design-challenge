@@ -28,6 +28,15 @@ body {
     box-sizing: border-box;
 }
 
+.tim {
+    background-image: url(assets/img/tim-brouwers.png);
+    background-size: cover;
+    border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+}
+
+
 .greentravels {
     text-align: center;
     color: white;
@@ -49,7 +58,6 @@ margin: 20px;
 .zoeken {
     background-color: #5DAE32;
     padding: 10px;
-
 }
 
 .loginform {
@@ -71,7 +79,6 @@ margin: 20px;
     max-width: 70%;
     flex-direction: column;
     align-items: center;
-
 }
 
 .text-center {
@@ -90,4 +97,53 @@ margin: 20px;
     width: 55vw;
     height: fit-content;
     padding: 10px 20px;
+}
+
+.my-account {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #D6EBCB;
+    background-size: 100% auto;
+    background-position: center;
+    width: 100vw;
+    box-sizing: content-box;
+}
+
+.co2bespaard {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: pink -10px 10px 15px;
+}
+
+.co2bespaard2 {
+    background-color: #5DAE32;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.reisgeschiedenis {
+    background-color: white;
+    grid-row: 0 / 4;
+    border-radius: 10px;
+    box-shadow: pink -10px 10px 15px;
+}
+
+.greencoins {
+    background-color: white;
+    grid-row: 2 / 4;
+    border-radius: 10px;
+    box-shadow: pink -10px 10px 15px;
+}
+
+.uwgreencoins {
+    background-color: #5DAE32;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.persoonsgegevens{
+    background-color: white;
+    border-radius: 10px;
+    border-style: 5px solid black;
+    box-shadow: pink -10px 10px 15px;
 }

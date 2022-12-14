@@ -7,7 +7,7 @@ import Image from "next/image"
 
 export default function Page() {
   return (
-    <AppLayout>
+    <>
       <Head>
         <title>Sign in</title>
       </Head>
@@ -19,6 +19,14 @@ export default function Page() {
       </div>
       </div>
       
+    </>
+  )
+}
+
+Page.getLayout = function getLayout(page: React.ReactElement) {
+  return (
+    <AppLayout>
+      {page}
     </AppLayout>
   )
 }
