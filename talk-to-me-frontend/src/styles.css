@@ -32,8 +32,10 @@ body {
     background-image: url(assets/img/tim-brouwers.png);
     background-size: cover;
     border-radius: 50%;
-    width: 10vw;
-    height: 10vw;
+    width: 20vw;
+    height: 20vw;
+    justify-self: center;
+    align-self: center;
 }
 
 
@@ -101,49 +103,104 @@ margin: 20px;
 
 .my-account {
     display: grid;
+    width: auto;
+    padding: 5%;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     background-color: #D6EBCB;
     background-size: 100% auto;
     background-position: center;
-    width: 100vw;
     box-sizing: content-box;
-}
-
-.co2bespaard {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: pink -10px 10px 15px;
-}
-
-.co2bespaard2 {
-    background-color: #5DAE32;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.reisgeschiedenis {
-    background-color: white;
-    grid-row: 0 / 4;
-    border-radius: 10px;
-    box-shadow: pink -10px 10px 15px;
+    gap: 10%;
+    grid-template-rows: 1fr 1.4fr 1.6fr;
 }
 
 .greencoins {
-    background-color: white;
-    grid-row: 2 / 4;
+    width: 70%;
+    grid-column: 2/4;
     border-radius: 10px;
-    box-shadow: pink -10px 10px 15px;
+    box-shadow: black -10px 10px 10px;
+    justify-self: end;
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-rows: 0.2fr 1.8fr;
+    overflow: auto;
+    border-radius: 10px;
 }
 
-.uwgreencoins {
-    background-color: #5DAE32;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+.greencoins1 {
+    text-align: center; color: #5DAE32;
+    font-size: 20px; 
 }
 
-.persoonsgegevens{
+.greencoins2 {
     background-color: white;
+}
+
+
+.co2bespaard {
     border-radius: 10px;
+    box-shadow: black -10px 10px 10px;
+    grid-column: 2/4;
+    width: 90%;
+    justify-self: end;
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-rows: 0.2fr 1.8fr;
+    overflow: auto;
+    border-radius: 10px;
+}
+
+.co2bespaard2 {
+    text-align: center; color: #5DAE32;
+    font-size: 20px;    
+}
+
+.co2gegevens {
+    background-image: url(assets/img/co2.png);
+    }
+
+.persoonsgegevens {
     border-style: 5px solid black;
-    box-shadow: pink -10px 10px 15px;
+    box-shadow: black -10px 10px 10px;
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-rows: 0.2fr 1.8fr;
+    overflow: auto;
+    border-radius: 10px;
+}
+
+.welkom-gebruiker {
+    text-align: center; color: #5DAE32;
+    font-size: 20px;    
+}
+
+.uw-gegevens {
+    background-color: white;
+} 
+
+.reisgeschiedenis {
+    grid-row: 0 / 4;
+    box-shadow: black -10px 10px 10px;
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-rows: 0.2fr 1.8fr;
+    overflow: auto;
+    border-radius: 10px;
+}
+
+.uw-reisgeschiedenis1 {
+    text-align: center; color: #5DAE32;
+    font-size: 20px;    
+}
+
+.uw-reisgeschiedenis2 {
+    background-color: white;
+}
+
+.shoppagina {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }

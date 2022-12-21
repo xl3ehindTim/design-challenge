@@ -5,6 +5,7 @@ import AppLayout from "@/features/layout/AppLayout"
 import trein from "../assets/img/trein.jpg"
 import Image from "next/image"
 import image from "../assets/img/tim-brouwers.png"
+import image2 from "../assets/img/co2.png"
 
 export default function Page() {
   return (
@@ -15,37 +16,44 @@ export default function Page() {
       
       <div className="my-account">
 
-        <div className="tim">
+        <div className="tim"></div>
+
+        <div className="greencoins">
+            <div className="greencoins1">
+                Uw GreenCoins
+            </div>
+            <div className="greencoins2">
+                Hoeveel GreenCoins u heeft bespaard
+            </div>
         </div>
+
+        <div className="persoonsgegevens">
+            <div className="welkom-gebruiker">
+                Welkom gebruiker
+            </div>
+            <div className="uw-gegevens">
+                Uw gegevens
+            </div>
+        </div>
+        
 
         <div className="co2bespaard">
             <div className="co2bespaard2">
-            <p>Co2 bespaard</p>
+                Co2 bespaard
+            </div>
+            <div className="co2gegevens">
             </div>
         </div>
 
         <div className="reisgeschiedenis">
-            <p>Uw reisgeschiedenis</p>
-            <div></div>
-        </div>
-
-        <div className="greencoins">
-            <div className="uwgreencoins">
-                Uw greencoins
+            <div className="uw-reisgeschiedenis1">
+                Uw reisgeschiedenis
             </div>
-
-            <div className="greencoins2">
-                7000
-                <div className="buttonlogin">
-                button
-                </div>
+            <div className="uw-reisgeschiedenis2">
+                Hier staat uw reisgeschiedenis
             </div>
-
         </div>
 
-        <div className="persoonsgegevens">
-        </div>
-        
 
       </div>
     </>
