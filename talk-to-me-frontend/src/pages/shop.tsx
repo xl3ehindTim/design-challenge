@@ -14,25 +14,25 @@ export default function Page() {
       <Head>
       <title>shop</title>
       </Head>
-      
+
         <div className="shoppagina">
-          <div className="Cataloog">
-            test 1
+          <div className="cataloog">
+            cataloog
           </div>
           <div className="welkomgebruiker">
-            test 2
+            Welkom Tim
           </div>
           <div className="jouwgreencoins">
-            test 3
+            GreenCoins
           </div>
           <div className="kortingtrein">
-            test 4
+            Korting
           </div>
           <div className="doneer">
-            test 5
+            doneer
           </div>
           <div className="reisproducten">
-            test 6
+            producten
           </div>
         </div>
     </>

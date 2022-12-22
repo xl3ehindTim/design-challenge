@@ -1,17 +1,24 @@
-/* Schrijf hier je CSS :D */
+:root {
+    --main-green: #5DAE32;
+}
+
 body {
     margin: 0;
     padding: 0;
 }
 
 .navbar {
-    background-color: #5DAE32;
+    background-color: var(--main-green);
     height: 50px;
     width: 100%;
     display: flex;
-
     align-items: center;
     justify-content: space-between;
+    -webkit-box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 12px 3px rgba(0,0,0,0.2);
+    z-index: 1;
+    position: relative;
 }
 
 .logo {
@@ -22,7 +29,7 @@ body {
 .trein {
     background-image: url(assets/img/trein.jpg);
     background-size: 100% auto;
-    background-position: center;
+    background-position: bottom;
     width: 100vw;
     padding: 20vh;
     box-sizing: border-box;
@@ -53,12 +60,12 @@ body {
 }
 
 .buttonlogin {
-background-color: #5DAE32;
+background-color: var(--main-green);
 margin: 20px;
 }
 
 .zoeken {
-    background-color: #5DAE32;
+    background-color: var(--main-green);
     padding: 10px;
 }
 
@@ -106,20 +113,22 @@ margin: 20px;
     width: auto;
     padding: 5%;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    background-color: #D6EBCB;
+    grid-template-rows: 1fr 1.4fr 1.6fr;
+    background-color: white;
     background-size: 100% auto;
     background-position: center;
     box-sizing: content-box;
     gap: 10%;
-    grid-template-rows: 1fr 1.4fr 1.6fr;
 }
 
 .greencoins {
     width: 70%;
+    background-color: var(--main-green);
     grid-column: 2/4;
     border-radius: 10px;
-    box-shadow: black -10px 10px 10px;
+    -webkit-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    -moz-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
     justify-self: end;
     display: grid;
     grid-template-columns: 1fr; 
@@ -129,18 +138,20 @@ margin: 20px;
 }
 
 .greencoins1 {
-    text-align: center; color: #5DAE32;
+    text-align: center; color: white;
     font-size: 20px; 
 }
 
 .greencoins2 {
-    background-color: white;
+    background-color: rgba(251, 251, 251, 1);
 }
 
 
 .co2bespaard {
     border-radius: 10px;
-    box-shadow: black -10px 10px 10px;
+    -webkit-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    -moz-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
     grid-column: 2/4;
     width: 90%;
     justify-self: end;
@@ -152,17 +163,21 @@ margin: 20px;
 }
 
 .co2bespaard2 {
-    text-align: center; color: #5DAE32;
+    text-align: center; color: white;
+    background-color: var(--main-green);
     font-size: 20px;    
 }
 
 .co2gegevens {
     background-image: url(assets/img/co2.png);
+    background-size: 100% auto;
     }
 
 .persoonsgegevens {
     border-style: 5px solid black;
-    box-shadow: black -10px 10px 10px;
+    -webkit-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    -moz-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
     display: grid;
     grid-template-columns: 1fr; 
     grid-template-rows: 0.2fr 1.8fr;
@@ -171,7 +186,7 @@ margin: 20px;
 }
 
 .welkom-gebruiker {
-    text-align: center; color: #5DAE32;
+    text-align: center; color: var(--main-green);
     font-size: 20px;    
 }
 
@@ -181,7 +196,9 @@ margin: 20px;
 
 .reisgeschiedenis {
     grid-row: 0 / 4;
-    box-shadow: black -10px 10px 10px;
+    -webkit-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    -moz-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
     grid-column: 1/4;
     display: grid;
     grid-template-columns: 1fr; 
@@ -191,7 +208,7 @@ margin: 20px;
 }
 
 .uw-reisgeschiedenis1 {
-    text-align: center; color: #5DAE32;
+    text-align: center; color: var(--main-green);
     font-size: 20px;    
 }
 
@@ -201,6 +218,42 @@ margin: 20px;
 
 .shoppagina {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    width: auto;
+    height: 100vh;
+    background-color: #D6EBCB;
+    padding: 5%;
+    gap: 10%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.cataloog {
+    background-color: var(--main-green);
+    grid-row: 1 / 4;
+}
+
+.welkomgebruiker {
+    background-color: var(--main-green);
+    grid-column: 2 / 4;
+    width: 80%;
+}
+
+.jouwgreencoins {
+    background-color: var(--main-green);
+    grid-column: 4 / 6;
+}
+
+.kortingtrein {
+    background-color: var(--main-green);
+    grid-column: 2 / 6;
+}
+
+.doneer {
+    background-color: var(--main-green);
+    grid-column: 2 / 6;
+}
+
+.reisproducten {
+    background-color: var(--main-green);
+    grid-column: 1 / 6;
 }
