@@ -6,6 +6,7 @@ import { AsyncSelectField } from "@/components/Form/AsyncSelectField"
 import { DateField } from "@/components/Form/DateField"
 import moment from "moment"
 
+
 export interface IStation {
   id: string;
   name: string;
@@ -86,7 +87,8 @@ export default function BookingForm() {
         name="departureDate"
       />
 
-      <button type="submit">
+      <button className="zoeken" type="submit">
+        <i className="fa-solid fa-magnifying-glass"></i>
         Zoeken
       </button>
     </form>
