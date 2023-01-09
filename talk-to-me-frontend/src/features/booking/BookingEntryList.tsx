@@ -1,5 +1,5 @@
 import axiosInstance from '@/xhr/axiosInstance';
-import { ArrowRight } from '@mui/icons-material';
+import { ArrowRight, SwipeLeft } from '@mui/icons-material';
 import { Box, Tooltip, Button, Card, Stack, CardActions, CardContent, Grid, Typography, CardHeader, Divider } from '@mui/material';
 import React, { useEffect } from 'react';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
@@ -59,19 +59,17 @@ export default function BookingEntryList(props: IProps) {
     axiosInstance.get(`/booking-entries/?route=${route}&date=${departureDate}`).then(({ data }) => setBookingEntries(data.results))
   }
 
+  const handleConfirm = () => {
+    axiosInstance.post("/orders/book/", {
+      booking_option: selectedEntry?.id,
+      amount_of_tickets: 1,
+    }).then((res) => window.location.href = "/my-account")
+  }
+
   // useEffect to check if route or departureDate have been changed. This will call getBookingEntries to get data
   useEffect(() => {
     getBookingEntries();
   }, [route, departureDate])
-
-  // return (
-  //   <>
-  //     Van
-  //     <h5>{fromStation?.name}</h5>
-  //     Naar
-  //     <h5>{toStation?.name}</h5>
-  //   </>
-  // )
 
   return (
     <>
@@ -218,13 +216,11 @@ export default function BookingEntryList(props: IProps) {
               ) : null}
             </CardContent>
             <CardActions>
-              <Link href={`/`}>
+              {/* <Link href={`/`}>
                 <Button fullWidth>Annuleren</Button>
-              </Link>
+              </Link> */}
 
-              <Link href={`/booked`}>
-                <Button disabled={!selectedEntry} variant='contained' fullWidth>Boek uw reis</Button>
-              </Link>
+              <Button disabled={!selectedEntry} onClick={handleConfirm} variant='contained' fullWidth>Boek uw reis</Button>
             </CardActions>
           </Card>
         </Grid>

@@ -16,7 +16,17 @@ class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
-    @action(methods=['get'], detail=False)
+    def get_queryset(self):
+        user = self.request.user
+
+        if not user.is_authenticated:
+            raise Exception("Not authenticated")
+
+        orders = Order.objects.filter(user=self.request.user)
+
+        return orders
+
+    @action(methods=['post'], detail=False)
     def book(self, request):
         """
         @param booking_option
@@ -24,10 +34,10 @@ class OrderViewSet(viewsets.ModelViewSet):
         @param travel_class
         """
         user = self.request.user
-        
-        booking_option_param = self.request.GET.get("booking_option")
-        amount_of_tickets_param = self.request.GET.get("amount_of_tickets")
-        travel_class_param = self.request.GET.get("travel_class")
+
+        booking_option_param = self.request.data.get("booking_option")
+        amount_of_tickets_param = self.request.data.get("amount_of_tickets")
+        travel_class_param = self.request.data.get("travel_class") 
 
         if not user:
             return Response({
