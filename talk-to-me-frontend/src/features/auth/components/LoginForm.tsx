@@ -66,7 +66,7 @@ export default function LoginForm() {
       <button
         type="submit"
         className="buttonlogin"
-        style={{ height: 35 }}
+        style={{ height: 35, cursor: 'pointer' }}
       >
         Login Now
       </button>

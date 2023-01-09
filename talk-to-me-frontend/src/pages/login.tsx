@@ -14,11 +14,10 @@ export default function Page() {
 
       <div className="trein">
         <div className="loginform">
-      <p className="text-center text-lg">Login</p>
-      <LoginForm />
+          <p className="text-center text-lg">Login</p>
+          <LoginForm />
+        </div>
       </div>
-      </div>
-      
     </>
   )
 }
