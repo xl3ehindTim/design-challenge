@@ -17,23 +17,67 @@ export default function Page() {
 
         <div className="shoppagina">
           <div className="cataloog">
-            cataloog
+            Baby & Kind <br></br>
+            Body & Care <br></br>
+            Boeken <br></br>
+            Camping & Reizen <br></br>
+            Doneren <br></br>
+            Eco Wasmiddel <br></br>
+            Energiebesparing <br></br>
+            Eten & Drinken <br></br>
+            Fair Fashion <br></br>
+            Huis & Tuin <br></br>
+            Insecten & (On)gedierte <br></br>
+            Kantoor <br></br>
+            Lunchboxen <br></br>
+            Outdoor <br></br>
+            Waterflessen <br></br>
           </div>
+
           <div className="welkomgebruiker">
-            Welkom Tim
+            Welkom <br></br>
+            Tim Brouwers
           </div>
+
           <div className="jouwgreencoins">
-            GreenCoins
+            <div className="jouwgreencoins1">
+              Jouw GreenCoins
+            </div>
+            <div className="jouwgreencoins2"></div>
           </div>
+
           <div className="kortingtrein">
-            Korting
+            <div className="kortingtrein1">
+              Wissel je GreenCoins in voor korting op je volgende treinticket
+            </div>
+            <div className="kortingtrein2"></div>
           </div>
+
           <div className="doneer">
-            doneer
+            <div className="doneernu">
+              Doneer jouw GreenCoins
+            </div>
+            <div className="afbeelding1"></div>
+            <div className="afbeelding2"></div>
+            <div className="afbeelding3"></div>
+            <div className="doneerknop">
+            <button className="pointer">Doneer nu</button>
+            </div>
           </div>
+
           <div className="reisproducten">
-            producten
+            <div className="duurzamereis">
+              Duurzame reis producten
+            </div>
+            <div className="afbeelding4"></div>
+            <div className="afbeelding5"></div>
+            <div className="afbeelding6"></div>
+            <div className="afbeelding7"></div>
+            <div className="bekijkhier">
+              <button className="pointer">Bekijk hier</button>
+            </div>
           </div>
+
         </div>
     </>
   )

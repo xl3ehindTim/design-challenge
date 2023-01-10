@@ -2,6 +2,16 @@
     --main-green: #5DAE32;
 }
 
+:root {
+    --shadow:  -webkit-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    --shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+}
+
+:root {
+    --columns: 1fr; 
+    --rows: 0.3fr 1.7fr;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -126,9 +136,7 @@ margin: 20px;
     background-color: var(--main-green);
     grid-column: 2/4;
     border-radius: 10px;
-    -webkit-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
-    -moz-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
-    box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow);
     justify-self: end;
     display: grid;
     grid-template-columns: 1fr; 
@@ -149,9 +157,7 @@ margin: 20px;
 
 .co2bespaard {
     border-radius: 10px;
-    -webkit-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
-    -moz-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
-    box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow);
     grid-column: 2/4;
     width: 90%;
     justify-self: end;
@@ -175,9 +181,7 @@ margin: 20px;
 
 .persoonsgegevens {
     border-style: 5px solid black;
-    -webkit-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
-    -moz-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
-    box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow);
     display: grid;
     grid-template-columns: 1fr; 
     grid-template-rows: 0.2fr 1.8fr;
@@ -186,8 +190,7 @@ margin: 20px;
 }
 
 .welkom-gebruiker {
-    text-align: center; color: var(--main-green);
-    font-size: 20px;    
+    text-align: center; color: var(--main-green);   
 }
 
 .uw-gegevens {
@@ -196,9 +199,7 @@ margin: 20px;
 
 .reisgeschiedenis {
     grid-row: 0 / 4;
-    -webkit-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
-    -moz-box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
-    box-shadow: -13px 13px 12px -8px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow);
     grid-column: 1/4;
     display: grid;
     grid-template-columns: 1fr; 
@@ -220,7 +221,7 @@ margin: 20px;
     display: grid;
     width: auto;
     height: 100vh;
-    background-color: #D6EBCB;
+    background-color:white;
     padding: 5%;
     gap: 10%;
     grid-template-columns: repeat(5, 1fr);
@@ -228,32 +229,149 @@ margin: 20px;
 }
 
 .cataloog {
-    background-color: var(--main-green);
+    background-color: lightgrey;
+    box-shadow: var(--shadow);
     grid-row: 1 / 4;
+    padding: 10%;
 }
 
 .welkomgebruiker {
     background-color: var(--main-green);
+    box-shadow: var(--shadow);
     grid-column: 2 / 4;
+    padding: 10px;
     width: 80%;
+    border-radius: 10px;
 }
 
 .jouwgreencoins {
     background-color: var(--main-green);
+    box-shadow: var(--shadow);
     grid-column: 4 / 6;
+    display: grid;
+    grid-template-columns: var(--columns);
+    grid-template-rows: var(--rows);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.jouwgreencoins1 {
+    background-color: var(--main-green);
+}
+
+.jouwgreencoins2 {
+    background-color: white;
 }
 
 .kortingtrein {
     background-color: var(--main-green);
+    box-shadow: var(--shadow);
     grid-column: 2 / 6;
+    display: grid;
+    grid-template-columns: var(--columns);
+    grid-template-rows: var(--rows);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.kortingtrein1 {
+background-color: var(--main-green);
+}
+
+.kortingtrein2 {
+background-color: white;
 }
 
 .doneer {
-    background-color: var(--main-green);
     grid-column: 2 / 6;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 0.4fr 2.1fr 0.5fr;
+}
+
+.doneernu {
+    grid-column: 1/4;
+}
+
+.afbeelding1 {
+    grid-column: 1/2;
+    background-color: blueviolet;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 10%;
+}
+
+.afbeelding2 {
+    grid-column: 2/3;
+    background-color: blue;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 10%;
+}
+
+.afbeelding3 {
+    grid-column: 3/4;
+    background-color: blueviolet;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 10%;
+}
+
+.doneerknop {
+    grid-column: 1/4;
+    display: flex;
+    justify-content: right;
 }
 
 .reisproducten {
-    background-color: var(--main-green);
-    grid-column: 1 / 6;
+    grid-column: 1/6;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 0.4fr 2.1fr 0.5fr;
+}
+
+.duurzamereis {
+    grid-column: 1/5;
+}
+
+.afbeelding4 {
+    grid-column: 1/2;
+    background-color: blueviolet;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 10%;
+}
+
+.afbeelding5 {
+    grid-column: 2/3;
+    background-color: blue;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 10%;
+}
+
+.afbeelding6 {
+    grid-column: 3/4;
+    background-color: blueviolet;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 10%;
+}
+
+.afbeelding7 {
+    grid-column: 4/5;
+    background-color: blue;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 10%;
+}
+
+.bekijkhier {
+    grid-column: 1/5;
+    display: flex;
+    justify-content: right;
+}
+
+.pointer {
+    cursor: pointer;
 }
