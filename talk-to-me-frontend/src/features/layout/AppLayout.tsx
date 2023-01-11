@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from "next/link"
 import { isLoggedIn } from 'axios-jwt';
 
+
 function AppLayout({ children }: any) {
   const user = getUser();
 

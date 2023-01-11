@@ -1,5 +1,4 @@
 import * as React from "react"
-import LoginForm from "@/features/auth/components/LoginForm"
 import Head from "next/head"
 import AppLayout from "@/features/layout/AppLayout"
 import trein from "../assets/img/trein.jpg"
@@ -8,6 +7,7 @@ import image from "../assets/img/tim-brouwers.png"
 import image2 from "../assets/img/co2.png"
 import axiosInstance from "@/xhr/axiosInstance"
 import { getUser } from "@/features/auth/services/user.service"
+import greencoin from "../../assets/img/Greencoin.png"
 
 export default function Page() {
   const [orders, setOrders] = React.useState([]);
@@ -37,9 +37,9 @@ export default function Page() {
           <div className="greencoins1">
             Uw GreenCoins
           </div>
-          <div className="greencoins2">
-            Hoeveel GreenCoins u heeft bespaard
+          <div className="greencoinslogo">
           </div>
+          <div className="greencoinsnummer"></div>
         </div>
 
         <div className="persoonsgegevens">
