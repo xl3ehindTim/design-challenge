@@ -7,9 +7,13 @@ import Image from "next/image"
 import image from "../assets/img/tim-brouwers.png"
 import image2 from "../assets/img/co2.png"
 import axiosInstance from "@/xhr/axiosInstance"
+import { getUser } from "@/features/auth/services/user.service"
 
 export default function Page() {
   const [orders, setOrders] = React.useState([]);
+  const user = getUser()
+
+  console.log(user)
 
   const getOrders = async () => {
     axiosInstance.get("/orders/").then(({ data }) => setOrders(data.results))
@@ -40,10 +44,29 @@ export default function Page() {
 
         <div className="persoonsgegevens">
           <div className="welkom-gebruiker">
-            Welkom gebruiker
+            Welkom <span className="capitalize">{user?.first_name}</span> <span className="capitalize">{user?.last_name}</span>
           </div>
           <div className="uw-gegevens">
-            Uw gegevens
+            <table>
+              <tbody>
+                <tr>
+                  <td>Voornaam:</td>
+                  <td>{user?.first_name}</td>
+                </tr>
+                <tr>
+                  <td>Achternaam:</td>
+                  <td>{user?.last_name}</td>
+                </tr>
+                <tr>
+                  <td>E-mailadres:</td>
+                  <td>{user?.email}</td>
+                </tr>
+                <tr>
+                  <td>Greencoins:</td>
+                  <td>{user?.green_coins}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -61,34 +84,33 @@ export default function Page() {
             Uw reisgeschiedenis
           </div>
           <div className="uw-reisgeschiedenis2">
+            <table>
+              <thead>
+                <tr>
+                  <th>Bestemming</th>
+                  <th>Reisdatum</th>
+                  <th>Prijs</th>
+                  <th>Reisklasse</th>
+                  <th>Tickets</th>
+                  <th>Besparing</th>
+                </tr>
+              </thead>
+              <tbody>
+                {orders?.map((order: any, index) => (
+                  <tr key={index}>
+                    <td>{order.booking_option}</td>
+                    <td>Reisdatum</td>
+                    <td>{order?.total_amount}</td>
+                    <td>{order.travel_class}</td>
+                    <td>{order.amount_of_tickets}</td>
+                    <td>Besparing</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-
-      <table>
-          <thead>
-            <tr>
-              <th>Bestemming</th>
-              <th>Reisdatum</th>
-              <th>Prijs</th>
-              <th>Reisklasse</th>
-              <th>Tickets</th>
-              <th>Besparing</th>
-            </tr>
-          </thead>
-          <tbody>
-          {orders?.map((order: any, index) => (
-              <tr key={index}>
-                <td>{order.booking_option}</td>
-                <td>Reisdatum</td>
-                <td>{order?.total_amount}</td>
-                <td>{order.travel_class}</td>
-                <td>{order.amount_of_tickets}</td>
-                <td>Besparing</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
     </>
   )
 }

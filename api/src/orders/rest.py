@@ -35,6 +35,9 @@ class OrderViewSet(viewsets.ModelViewSet):
         """
         user = self.request.user
 
+        if not user.is_authenticated:
+            raise Exception("Not authenticated")
+
         booking_option_param = self.request.data.get("booking_option")
         amount_of_tickets_param = self.request.data.get("amount_of_tickets")
         travel_class_param = self.request.data.get("travel_class") 
