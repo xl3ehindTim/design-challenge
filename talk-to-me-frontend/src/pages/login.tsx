@@ -14,10 +14,25 @@ export default function Page() {
 
       <div className="trein">
         <div className="loginform">
+          <h1>Inloggen</h1>
+          <form>
+            <label className="gebruikersnaam">Gebruikersnaam</label>
+            <input className="username w-100" name="username" />
+
+            <label className="wachtwoord">Wachtwoord</label>
+            <input className="password w-100" name="password" type="password" />
+
+            <input className="login w-100 pointer" type="submit" value={'login'} />
+          </form>
+        </div>
+      </div>
+
+      {/* <div className="trein">
+        <div className="loginform">
           <p className="text-center text-lg">Login</p>
           <LoginForm />
         </div>
-      </div>
+      </div> */}
     </>
   )
 }

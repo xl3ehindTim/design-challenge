@@ -82,7 +82,7 @@ body {
 .loginform {
     background-color: white;
     margin: auto;
-    width: 25vw;
+    width: 20vw;
     height: fit-content;
     border-radius: 30px;
     padding: 10px 20px;
@@ -90,6 +90,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0% 0% 5% 0%;
 }
 
 .loginform form {
@@ -99,6 +100,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
 
 .text-center {
     text-align: center;
@@ -177,8 +179,8 @@ body {
 }
 
 .co2gegevens {
-    background-image: url(assets/img/co2.png);
-    background-size: 100% auto;
+    background: url(assets/img/co2.png) no-repeat center;
+    background-size: contain;
 }
 
 .persoonsgegevens {
@@ -424,3 +426,69 @@ body {
 .w-100 {
     width: 100%;
 }
+
+.buttonlogin {
+    border-radius: 10px;
+}
+
+.login {
+    background-color: #5DAE32;
+    border-radius: 10px;
+}
+
+.gebruikersnaam {
+    margin: 5% 0% 2% 0%;
+}
+
+.username {
+    margin: 0% 0% 15% 0%;
+}
+
+.wachtwoord {
+    margin: 0% 0% 2% 0%;
+}
+
+.password {
+    margin: 0% 0% 20% 0%;
+}
+
+.voornaam {
+    margin: 0% 0% 0% 0%;
+}
+
+.voornaam2 {
+    margin: 0% 0% 8% 0%;
+}
+
+.achternaam {
+    margin: 0% 0% 0% 0%;
+}
+
+.achternaam2 {
+    margin: 0% 0% 8% 0%;
+}
+
+.emailadres {
+    margin: 0% 0% 0% 0%;
+}
+
+.emailadres2 {
+    margin: 0% 0% 8% 0%;
+}
+
+.wachtwoord3 {
+    margin: 0% 0% 0% 0%;
+}
+
+.wachtwoord4 {
+    margin: 0% 0% 8% 0%;
+}
+
+.herhaal {
+    margin: 0% 0% 0% 0%;
+}
+
+.herhaal2 {
+    margin: 0% 0% 8% 0%;
+}
+
