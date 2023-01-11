@@ -19,17 +19,17 @@ export default function Page() {
             <label className="voornaam">Voornaam</label>
             <input className="voornaam2 w-100" name="username" />
 
-            <label className="achternaam">Achternaam</label>
-            <input className="achternaam2 w-100" name="username" />
+            <label className="voornaam">Achternaam</label>
+            <input className="voornaam2 w-100" name="username" />
 
-            <label className="emailadres">E-mailadres</label>
-            <input className="emailadres2 w-100" name="username" />
+            <label className="voornaam">E-mailadres</label>
+            <input className="voornaam2 w-100" name="username" />
 
-            <label className="wachtwoord3">Wachtwoord</label>
-            <input className="wachtwoord4 w-100" name="password" type="password" />
+            <label className="voornaam">Wachtwoord</label>
+            <input className="voornaam2 w-100" name="password" type="password" />
 
-            <label className="herhaal">Herhaal wachtwoord</label>
-            <input className="herhaal2 w-100" name="password" type="password" />
+            <label className="voornaam">Herhaal wachtwoord</label>
+            <input className="voornaam2 w-100" name="password" type="password" />
 
             <input className="login w-100 pointer" type="submit" value={'creëer account'} />
           </form>
