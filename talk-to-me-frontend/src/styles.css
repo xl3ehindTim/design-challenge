@@ -28,12 +28,13 @@ body {
     -moz-box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    position: relative;
+    position: fixed;
+
 }
 
 .logo {
     padding-top: 0.35vw;
-    padding-left: 0.5vw;
+    padding-left: 1.5vw;
 }
 
 .trein {
@@ -123,7 +124,7 @@ body {
 .my-account {
     display: grid;
     width: auto;
-    padding: 5%;
+    padding: 10%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1.4fr 1.6fr;
     background-color: white;
@@ -141,7 +142,7 @@ body {
     box-shadow: var(--shadow);
     justify-self: end;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 0.8fr 1.2fr;
     grid-template-rows: 0.2fr 1.8fr;
     overflow: auto;
     border-radius: 10px;
@@ -151,9 +152,22 @@ body {
     text-align: center;
     color: white;
     font-size: 20px;
+    grid-column: 1/3;
 }
 
-.greencoins2 {
+.greencoinslogo {
+    grid-column: 1/2;
+    background-color: white;
+    background-image: url(assets/img/greencoin.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.greencoinsnummer {
+    grid-column: 2/3;
+    background-color: white;
+}
+
+.greencoinslogo {
     background-color: rgba(251, 251, 251, 1);
 }
 

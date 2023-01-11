@@ -7,6 +7,7 @@ import Image from "next/image"
 import image from "../assets/img/tim-brouwers.png"
 import image2 from "../assets/img/co2.png"
 import axiosInstance from "@/xhr/axiosInstance"
+import greencoin from "../../assets/img/Greencoin.png"
 
 export default function Page() {
   const [orders, setOrders] = React.useState([]);
@@ -33,9 +34,9 @@ export default function Page() {
           <div className="greencoins1">
             Uw GreenCoins
           </div>
-          <div className="greencoins2">
-            Hoeveel GreenCoins u heeft bespaard
+          <div className="greencoinslogo">
           </div>
+          <div className="greencoinsnummer"></div>
         </div>
 
         <div className="persoonsgegevens">
