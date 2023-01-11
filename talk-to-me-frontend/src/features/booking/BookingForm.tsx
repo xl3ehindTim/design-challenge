@@ -6,6 +6,7 @@ import { AsyncSelectField } from "@/components/Form/AsyncSelectField"
 import { DateField } from "@/components/Form/DateField"
 import moment from "moment"
 
+
 export interface IStation {
   id: string;
   name: string;
@@ -60,33 +61,35 @@ export default function BookingForm() {
 
   return (
     <form onSubmit={handleSubmit(doSave)}>
-      <AsyncSelectField
-        label="From"
-        control={control}
-        error={errors.fromStation}
-        isSearchable
-        isClearable
-        loadOptions={fetchStations}
-        {...register("fromStation")}
-      />
+        <AsyncSelectField
+          label="From"
+          control={control}
+          error={errors.fromStation}
+          isSearchable
+          isClearable
+          loadOptions={fetchStations}
+          {...register("fromStation")}
+        />
 
-      <AsyncSelectField
-        label="To"
-        control={control}
-        error={errors.toStation}
-        isSearchable
-        isClearable
-        loadOptions={fetchStations}
-        {...register("toStation")}
-      />
-      <DateField
-        label="Vertrekdatum"
-        control={control}
-        error={errors.departureDate}
-        name="departureDate"
-      />
+        <AsyncSelectField
+          label="To"
+          control={control}
+          error={errors.toStation}
+          isSearchable
+          isClearable
+          loadOptions={fetchStations}
+          {...register("toStation")}
+        />
 
-      <button type="submit">
+        <DateField
+          label="Vertrekdatum"
+          control={control}
+          error={errors.departureDate}
+          name="departureDate"
+        />
+
+      <button className="zoeken" type="submit">
+        <i className="fa-solid fa-magnifying-glass"></i>
         Zoeken
       </button>
     </form>
