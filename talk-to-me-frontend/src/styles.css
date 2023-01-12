@@ -480,3 +480,25 @@ body {
 .capitalize {
     text-transform: capitalize;
 }
+
+#reisgeschiedenis {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #reisgeschiedenis td, #reisgeschiedenis th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #reisgeschiedenis tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #reisgeschiedenis tr:hover {background-color: #ddd;}
+  
+  #reisgeschiedenis th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--main-green);
+    color: white;
+  }
