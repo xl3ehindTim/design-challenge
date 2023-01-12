@@ -448,7 +448,9 @@ body {
 .login {
     background-color: #5DAE32;
     border-radius: 10px;
+    margin: 0% 0% 20% 0%;
 }
+
 
 .gebruikersnaam {
     margin: 5% 0% 2% 0%;
@@ -465,6 +467,7 @@ body {
 .password {
     margin: 0% 0% 20% 0%;
 }
+
 
 .voornaam {
     margin: 0% 0% 0% 0%;
