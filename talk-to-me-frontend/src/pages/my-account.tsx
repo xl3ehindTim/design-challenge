@@ -84,7 +84,7 @@ export default function Page() {
             Uw reisgeschiedenis
           </div>
           <div className="uw-reisgeschiedenis2">
-            <table>
+            <table id="reisgeschiedenis">
               <thead>
                 <tr>
                   <th>Bestemming</th>
