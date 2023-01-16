@@ -23,11 +23,11 @@ function AppLayout({ children }: any) {
             <i className="fa-solid fa-house" style={{ fontSize: "20px", cursor: "pointer" }}></i>
           </Link>
 
-          <Link href={ user ? "/my-account" : "/login" }>
+          <Link href={user ? "/my-account" : "/login"}>
             <i className="fa-solid fa-user" style={{ fontSize: "20px", cursor: "pointer" }}></i>
           </Link>
 
-          <Link href="/shop">
+          <Link href={user ? "/shop" : "/login"}>
             <i className="fa-solid fa-basket-shopping" style={{ fontSize: "20px", cursor: "pointer" }}></i>
           </Link>
         </div>
