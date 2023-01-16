@@ -42,7 +42,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>bookingform</title>
+        <title>Home</title>
       </Head>
 
       <div className="trein">
