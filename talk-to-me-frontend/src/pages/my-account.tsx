@@ -35,7 +35,7 @@ export default function Page() {
 
         <div className="greencoins">
           <div className="greencoins1">
-            Uw GreenCoins
+            Jouw GreenCoins
           </div>
           <div className="greencoinslogo">
 
