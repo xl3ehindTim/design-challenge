@@ -6,8 +6,11 @@ import trein from "../assets/img/trein.jpg"
 import Image from "next/image"
 import image from "../assets/img/tim-brouwers.png"
 import image2 from "../assets/img/co2.png"
+import { getUser } from "@/features/auth/services/user.service"
 
 export default function Page() {
+  const user = getUser();
+
   return (
     <>
 
@@ -36,14 +39,15 @@ export default function Page() {
 
           <div className="welkomgebruiker">
             Welkom <br></br>
-            Tim Brouwers
+            {user?.first_name} {user?.last_name}
           </div>
 
           <div className="jouwgreencoins">
-            <div className="jouwgreencoins1">
-              Jouw GreenCoins
+            <div className="jouw">jouw greencoins</div>
+            <div className="jouwlogo"></div>
+            <div className="jouwnummer">
+              {parseInt(user?.green_coins)}
             </div>
-            <div className="jouwgreencoins2"></div>
           </div>
 
           <div className="kortingtrein">
