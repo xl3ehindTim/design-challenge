@@ -38,13 +38,16 @@ export default function Page() {
             Uw GreenCoins
           </div>
           <div className="greencoinslogo">
+
           </div>
-          <div className="greencoinsnummer"></div>
+          <div className="greencoinsnummer">
+            {parseInt(user?.green_coins)}
+          </div>
         </div>
 
         <div className="persoonsgegevens">
           <div className="welkom-gebruiker">
-            Welkom <span className="capitalize">{user?.first_name}</span> <span className="capitalize">{user?.last_name}</span>
+            Welkom gebruiker <span className="capitalize">{user?.first_name}</span> <span className="capitalize">{user?.last_name}</span>
           </div>
           <div className="uw-gegevens">
             <table>
@@ -60,10 +63,6 @@ export default function Page() {
                 <tr>
                   <td>E-mailadres:</td>
                   <td>{user?.email}</td>
-                </tr>
-                <tr>
-                  <td>Greencoins:</td>
-                  <td>{user?.green_coins}</td>
                 </tr>
               </tbody>
             </table>
