@@ -86,8 +86,6 @@ export default function Page() {
   )
 }
 
-/* style={{ width: "100%" }} */
-
 Page.getLayout = function getLayout(page: React.ReactElement) {
   return (
     <AppLayout>
