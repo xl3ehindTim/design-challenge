@@ -66,7 +66,7 @@ export default function Page() {
           </div>
 
           <div className="jouwgreencoins">
-            <div className="jouw">jouw greencoins</div>
+            <div className="jouw">Jouw GreenCoins</div>
             <div className="jouwlogo"></div>
             <div className="jouwnummer">
               {parseInt(user?.green_coins)}

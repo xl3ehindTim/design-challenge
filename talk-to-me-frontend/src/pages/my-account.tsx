@@ -80,7 +80,7 @@ export default function Page() {
 
         <div className="reisgeschiedenis">
           <div className="uw-reisgeschiedenis1">
-            Uw reisgeschiedenis
+            Jouw reisgeschiedenis
           </div>
           <div className="uw-reisgeschiedenis2">
             <table id="reisgeschiedenis">
