@@ -253,18 +253,19 @@ body {
 .shoppagina {
     display: grid;
     width: auto;
-    height: 100vh;
     background-color: white;
-    padding: 10%;
+    margin-left: 5%;
+    padding-top: 10%;
+    margin-right: 5%;
+    padding-bottom: 10%;
     gap: 10%;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
 }
 
 .cataloog {
-    background-color: lightgrey;
     grid-row: 1 / 4;
-    padding: 10%;
+    padding: 5%;
 }
 
 .welkomgebruiker {
@@ -283,6 +284,7 @@ body {
     grid-template-rows: 0.2fr 1.8fr;
     border-radius: 10px;
     overflow: hidden;
+    height: 150px;
 }
 
 .jouw {
@@ -322,14 +324,23 @@ body {
     grid-template-rows: var(--rows);
     border-radius: 10px;
     overflow: hidden;
+    height: 250px;
 }
 
 .kortingtrein1 {
     background-color: var(--main-green);
+    text-align: center;
+    color: white;
+    font-size: 20px;
 }
 
 .kortingtrein2 {
     background-color: white;
+    background-image: url(assets/img/ns.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
 }
 
 .doneer {
@@ -341,31 +352,48 @@ body {
 
 .doneernu {
     grid-column: 1/4;
+    color: var(--main-green);
+    font-size: 30px;
 }
 
 .afbeelding1 {
     grid-column: 1/2;
-    background-color: blueviolet;
+    background-color: white;
     border-radius: 10px;
     box-shadow: var(--shadow);
-    margin: 10%;
-}
+    margin: 5%;
+    height: 250px;
+    background-image: url(assets/img/WWF.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+   }
 
 .afbeelding2 {
     grid-column: 2/3;
-    background-color: blue;
+    background-color: white;
     border-radius: 10px;
     box-shadow: var(--shadow);
-    margin: 10%;
-}
+    margin: 5%;
+    height: 250px;
+    background-image: url(assets/img/greenpeace.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+   }
 
 .afbeelding3 {
     grid-column: 3/4;
-    background-color: blueviolet;
+    background-color: white;
     border-radius: 10px;
     box-shadow: var(--shadow);
-    margin: 10%;
-}
+    margin: 5%;
+    height: 250px;
+    background-image: url(assets/img/Just.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
 
 .doneerknop {
     grid-column: 1/4;
@@ -382,39 +410,61 @@ body {
 
 .duurzamereis {
     grid-column: 1/5;
+    color: var(--main-green);
+    font-size: 30px;
 }
 
 .afbeelding4 {
     grid-column: 1/2;
-    background-color: blueviolet;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 10px;    
     box-shadow: var(--shadow);
-    margin: 10%;
-}
+    margin: 5%;
+    height: 250px;
+    background-image: url(assets/img/tas.png);
+    background-size: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
 
 .afbeelding5 {
     grid-column: 2/3;
-    background-color: blue;
+    background-color: white;
     border-radius: 10px;
     box-shadow: var(--shadow);
-    margin: 10%;
-}
+    margin: 5%;
+    height: 250px;
+    background-image: url(assets/img/zeep.png);
+    background-size: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
 
 .afbeelding6 {
     grid-column: 3/4;
-    background-color: blueviolet;
+    background-color: white;
     border-radius: 10px;
     box-shadow: var(--shadow);
-    margin: 10%;
-}
+    margin: 5%;
+    height: 250px;
+    background-image: url(assets/img/zeep2.png);
+    background-size: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
 
 .afbeelding7 {
     grid-column: 4/5;
-    background-color: blue;
+    background-color: white;
     border-radius: 10px;
     box-shadow: var(--shadow);
-    margin: 10%;
-}
+    margin: 5%;
+    height: 250px;
+    background-image: url(assets/img/poetsen.png);
+    background-size: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
 
 .bekijkhier {
     grid-column: 1/5;
@@ -532,4 +582,10 @@ body {
     text-align: left;
     background-color: var(--main-green);
     color: white;
+  }
+
+  .buttonshop {
+    background-color: var(--main-green);
+    border-radius: 5px;
+    height: 30px;
   }
