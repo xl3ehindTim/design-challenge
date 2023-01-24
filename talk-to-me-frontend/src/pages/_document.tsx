@@ -1,4 +1,5 @@
 import NextDocument, { Head, Html, Main, NextScript } from "next/document"
+import favicon from "/favicon.ico"
 
 export default class Document extends NextDocument {
   render() {
@@ -11,7 +12,8 @@ export default class Document extends NextDocument {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
           />
-          {/* <link rel="icon" href="/favicon.ico"></link> */}
+          <link rel="icon" href="/favicon.ico"></link>
+          
         </Head>
         <body>
           {/* Make Color mode to persists when you refresh the page. */}
